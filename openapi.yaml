@@ -4,6 +4,9 @@ info:
   version: "6.0.0"
 servers:
   - url: "http://localhost:8088/ari"
+security:
+  - BasicAuth: []
+  - ApiKeyAuth: []
 tags:
   - name: applications
     description: |
@@ -3314,6 +3317,14 @@ paths:
               schema:
                   $ref: '#/components/schemas/Sound'
 components:
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+    ApiKeyAuth:
+      type: apiKey
+      in: query
+      name: api_key
   schemas:
     Application:
       required:
